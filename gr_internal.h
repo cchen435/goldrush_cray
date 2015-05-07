@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <semaphore.h>
 #include <mpi.h>
-#include "df_shm.h"
 #include "goldrush.h"
 
 #define GR_MAX_NUM_FILES 5

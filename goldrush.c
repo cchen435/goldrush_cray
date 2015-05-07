@@ -218,7 +218,6 @@ int gr_finalize()
     gr_destroy_opened_files();
 
     if(!is_simulation) { // analytics
-        gr_finalize_scheduler();
         return 0;
     }
 
@@ -347,11 +346,15 @@ int gr_phase_start(unsigned long int file, unsigned int line)
 
 		long long *window = gr_monitor_buffer->perfctr_values;
 
-		double ipc = window[1]/window[0];
-		double l2_miss_rate = window[2]/window[0] * 1000;
+		if (window[0] != 0) {
+			double ipc = window[1]/window[0];
+			double l2_miss_rate = window[2]/window[0] * 1000;
 
-		if (ipc > param->ipc_threshold && \
-				l2_miss_rate < param->l2_miss_threshold) {
+			if (ipc > param->ipc_threshold && \
+					l2_miss_rate < param->l2_miss_threshold) {
+				should_run = 1;
+			}
+		} else {
 			should_run = 1;
 		}
     }

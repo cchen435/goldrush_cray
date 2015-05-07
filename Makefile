@@ -25,10 +25,10 @@ ifeq ($(LINUX),y)
  #   CC=mpicc -c -g -DNDEBUG=1
     CC=mpicc -c -g -DNDEBUG=1 -DGR_HAVE_PERFCTR=1
 # the following CFLAGS is for kitten
-#    CFLAGS=-c -O2 -DNDEBUG=1 -DPRINT_AVG_LEN=1 -DDEBUG_TIMING=0 -DUSE_COOPSCHED -I$(HOME)/apps/include -L$(HOME)/apps/lib
+    CFLAGS=-c -O2 -DNDEBUG=1 -DPRINT_AVG_LEN=1 -DDEBUG_TIMING=0 -I$(HOME)/apps/include -L$(HOME)/apps/lib
 
 # the following CFLAGS is for CRAY
-    CFLAGS=-c -O2 -DNDEBUG=1 -DPRINT_AVG_LEN=1 -DDEBUG_TIMING=0 -DUSE_COOPLINUX \
+    #CFLAGS=-c -O2 -DNDEBUG=1 -DPRINT_AVG_LEN=1 -DDEBUG_TIMING=0 -DUSE_COOPLINUX \
 		   -I$(HOME)/Projects/Hobbes/cray/coopsched/coopsched_linux \
 		   -I$(HOME)/Projects/Hobbes/df_shm \
 		   -I$(HOME)/apps/include \
